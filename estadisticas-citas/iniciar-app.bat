@@ -33,7 +33,7 @@ echo.
 
 :: Iniciar el bridge de actualizacion (en segundo plano)
 echo  [OK] Iniciando servicio de sincronizacion automatica...
-start "Bridge de Actualizacion" /min cmd /c "cd /d .. && node actualizar-datos.js"
+start "Bridge de Actualizacion" /min cmd /c "cd /d core && node actualizar-datos.js"
 
 :: Iniciar el servidor de desarrollo
 npm run dev
