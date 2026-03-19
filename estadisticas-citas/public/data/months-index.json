@@ -5,7 +5,7 @@
     "detalles": "data/detalles_2025-01.json",
     "totalRows": 24197,
     "totalDetalles": 8865,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-02",
@@ -13,7 +13,7 @@
     "detalles": "data/detalles_2025-02.json",
     "totalRows": 25101,
     "totalDetalles": 9551,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-03",
@@ -21,7 +21,7 @@
     "detalles": "data/detalles_2025-03.json",
     "totalRows": 24795,
     "totalDetalles": 10515,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-04",
@@ -29,7 +29,7 @@
     "detalles": "data/detalles_2025-04.json",
     "totalRows": 24649,
     "totalDetalles": 10308,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-05",
@@ -37,7 +37,7 @@
     "detalles": "data/detalles_2025-05.json",
     "totalRows": 25965,
     "totalDetalles": 10207,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-06",
@@ -45,7 +45,7 @@
     "detalles": "data/detalles_2025-06.json",
     "totalRows": 25645,
     "totalDetalles": 9756,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-07",
@@ -53,7 +53,7 @@
     "detalles": "data/detalles_2025-07.json",
     "totalRows": 23253,
     "totalDetalles": 9531,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-08",
@@ -61,7 +61,7 @@
     "detalles": "data/detalles_2025-08.json",
     "totalRows": 23605,
     "totalDetalles": 9275,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-09",
@@ -69,7 +69,7 @@
     "detalles": "data/detalles_2025-09.json",
     "totalRows": 22619,
     "totalDetalles": 12362,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-10",
@@ -77,7 +77,7 @@
     "detalles": "data/detalles_2025-10.json",
     "totalRows": 21905,
     "totalDetalles": 6877,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-11",
@@ -85,7 +85,7 @@
     "detalles": "data/detalles_2025-11.json",
     "totalRows": 22953,
     "totalDetalles": 7339,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2025-12",
@@ -93,7 +93,7 @@
     "detalles": "data/detalles_2025-12.json",
     "totalRows": 21656,
     "totalDetalles": 7742,
-    "updatedAt": "2026-03-19T04:12:33.416Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2026-01",
@@ -101,7 +101,7 @@
     "detalles": "data/detalles_2026-01.json",
     "totalRows": 21971,
     "totalDetalles": 6401,
-    "updatedAt": "2026-03-19T04:12:33.417Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2026-02",
@@ -109,7 +109,7 @@
     "detalles": "data/detalles_2026-02.json",
     "totalRows": 24361,
     "totalDetalles": 6850,
-    "updatedAt": "2026-03-19T04:12:33.417Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   },
   {
     "month": "2026-03",
@@ -117,6 +117,6 @@
     "detalles": "data/detalles_2026-03.json",
     "totalRows": 15385,
     "totalDetalles": 10007,
-    "updatedAt": "2026-03-19T04:29:23.335Z"
+    "updatedAt": "2026-03-19T04:59:32.099Z"
   }
 ]
