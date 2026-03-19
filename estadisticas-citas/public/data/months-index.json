@@ -1,0 +1,122 @@
+[
+  {
+    "month": "2025-01",
+    "consolidado": "data/consolidado_2025-01.json",
+    "detalles": "data/detalles_2025-01.json",
+    "totalRows": 24197,
+    "totalDetalles": 8865,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-02",
+    "consolidado": "data/consolidado_2025-02.json",
+    "detalles": "data/detalles_2025-02.json",
+    "totalRows": 25101,
+    "totalDetalles": 9551,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-03",
+    "consolidado": "data/consolidado_2025-03.json",
+    "detalles": "data/detalles_2025-03.json",
+    "totalRows": 24795,
+    "totalDetalles": 10515,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-04",
+    "consolidado": "data/consolidado_2025-04.json",
+    "detalles": "data/detalles_2025-04.json",
+    "totalRows": 24649,
+    "totalDetalles": 10308,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-05",
+    "consolidado": "data/consolidado_2025-05.json",
+    "detalles": "data/detalles_2025-05.json",
+    "totalRows": 25965,
+    "totalDetalles": 10207,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-06",
+    "consolidado": "data/consolidado_2025-06.json",
+    "detalles": "data/detalles_2025-06.json",
+    "totalRows": 25645,
+    "totalDetalles": 9756,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-07",
+    "consolidado": "data/consolidado_2025-07.json",
+    "detalles": "data/detalles_2025-07.json",
+    "totalRows": 23253,
+    "totalDetalles": 9531,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-08",
+    "consolidado": "data/consolidado_2025-08.json",
+    "detalles": "data/detalles_2025-08.json",
+    "totalRows": 23605,
+    "totalDetalles": 9275,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-09",
+    "consolidado": "data/consolidado_2025-09.json",
+    "detalles": "data/detalles_2025-09.json",
+    "totalRows": 22619,
+    "totalDetalles": 12362,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-10",
+    "consolidado": "data/consolidado_2025-10.json",
+    "detalles": "data/detalles_2025-10.json",
+    "totalRows": 21905,
+    "totalDetalles": 6877,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-11",
+    "consolidado": "data/consolidado_2025-11.json",
+    "detalles": "data/detalles_2025-11.json",
+    "totalRows": 22953,
+    "totalDetalles": 7339,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2025-12",
+    "consolidado": "data/consolidado_2025-12.json",
+    "detalles": "data/detalles_2025-12.json",
+    "totalRows": 21656,
+    "totalDetalles": 7742,
+    "updatedAt": "2026-03-19T04:12:33.416Z"
+  },
+  {
+    "month": "2026-01",
+    "consolidado": "data/consolidado_2026-01.json",
+    "detalles": "data/detalles_2026-01.json",
+    "totalRows": 21971,
+    "totalDetalles": 6401,
+    "updatedAt": "2026-03-19T04:12:33.417Z"
+  },
+  {
+    "month": "2026-02",
+    "consolidado": "data/consolidado_2026-02.json",
+    "detalles": "data/detalles_2026-02.json",
+    "totalRows": 24361,
+    "totalDetalles": 6850,
+    "updatedAt": "2026-03-19T04:12:33.417Z"
+  },
+  {
+    "month": "2026-03",
+    "consolidado": "data/consolidado_2026-03.json",
+    "detalles": "data/detalles_2026-03.json",
+    "totalRows": 15385,
+    "totalDetalles": 10007,
+    "updatedAt": "2026-03-19T04:29:23.335Z"
+  }
+]

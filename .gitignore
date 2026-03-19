@@ -1,0 +1,19 @@
+# Dependencias
+node_modules/
+estadisticas-citas/node_modules/
+
+# Datos Sensibles (No compartir en GitHub por privacidad de pacientes)
+estadisticas-citas/public/data/consolidado_*.json
+estadisticas-citas/public/data/detalles_*.json
+bot-essalud/
+
+# Build and IDE
+estadisticas-citas/dist/
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+error.txt
+error2.txt
