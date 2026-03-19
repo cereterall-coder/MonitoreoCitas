@@ -1,6 +1,9 @@
 # Dependencias
 node_modules/
 estadisticas-citas/node_modules/
+dist/
+dist-ssr/
+estadisticas-citas/dist/
 
 # Datos Sensibles (No compartir en GitHub por privacidad de pacientes)
 estadisticas-citas/public/data/consolidado_*.json
@@ -8,12 +11,24 @@ estadisticas-citas/public/data/detalles_*.json
 bot-essalud/
 
 # Build and IDE
-estadisticas-citas/dist/
 .vscode/
 .idea/
 .DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Logs
 *.log
+logs/
 error.txt
 error2.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+*.local
