@@ -12,7 +12,7 @@ echo  ACTUALIZACION: Mes Actual + Futuros
 echo ========================================
 echo.
 
-node "%~dp0consolidate-monthly.js"
+node "%~dp0consolidate-monthly.cjs"
 
 echo.
 echo Presiona cualquier tecla para cerrar...

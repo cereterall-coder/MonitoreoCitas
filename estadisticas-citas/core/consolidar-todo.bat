@@ -16,7 +16,7 @@ echo  Puede tomar varios minutos segun el volumen de datos.
 echo.
 pause
 
-node "%~dp0consolidate-monthly.js" --all
+node "%~dp0consolidate-monthly.cjs" --all
 
 echo.
 echo Presiona cualquier tecla para cerrar...

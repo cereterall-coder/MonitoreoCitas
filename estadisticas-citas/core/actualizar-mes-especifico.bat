@@ -26,7 +26,7 @@ echo.
 echo Re-procesando el mes %targetMonth%...
 echo.
 
-node "%~dp0consolidate-monthly.js" --month %targetMonth%
+node "%~dp0consolidate-monthly.cjs" --month %targetMonth%
 
 if errorlevel 1 (
     echo.

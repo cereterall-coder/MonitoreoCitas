@@ -594,15 +594,13 @@ function App() {
                   options={{ responsive: true, maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
                     scales: { x: { grid: { display: false }, ticks: { maxRotation: 0, minRotation: 0, font: { size: 14, weight: 'bold' } } },
-                      y: { beginAtZero: true, ticks: { stepSize: 1, precision: 0,
-                        callback: v => Number.isInteger(v) ? v : null } } } }} />
+                      y: { beginAtZero: true, ticks: { precision: 0 } } } }} />
               ) : (
                 <Line data={chartDataDias}
                   options={{ responsive: true, maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
                     scales: { x: { grid: { display: false }, ticks: { maxRotation: 0, minRotation: 0, font: { size: 14, weight: 'bold' } } },
-                      y: { beginAtZero: true, ticks: { stepSize: 1, precision: 0,
-                        callback: v => Number.isInteger(v) ? v : null } } } }} />
+                      y: { beginAtZero: true, ticks: { precision: 0 } } } }} />
               )}
             </div>
           </div>
