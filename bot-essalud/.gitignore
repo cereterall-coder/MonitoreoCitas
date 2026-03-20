@@ -1,0 +1,8 @@
+node_modules/
+descargas/
+config_cerete.json
+RobotEsSalud.exe
+xxxxxindex.js
+especialidades.json
+*.log
+.DS_Store

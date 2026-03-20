@@ -1,0 +1,30 @@
+{
+  "name": "bot-essalud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg . --targets node18-win-x64 --output RobotEsSalud.exe"
+  },
+  "pkg": {
+    "assets": [
+      "centers_full.json",
+      "especialidades.json",
+      "config_cerete.json"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.58.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
+}
