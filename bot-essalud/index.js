@@ -87,66 +87,58 @@ const LISTA_CENTROS = [
 const REPORTES_CONFIG = [
     {
         id: "horas",
-        label: "HORAS EFECTIVAS",
-        carpeta: "HORAS EFECTIVAS",
-        menuP: "ADMISI.*CITAS",
-        subM: "PROG.*HORAS.*EFECTIVAS",
+        label: "HORAS EFECTIVAS - CERETE",
+        carpeta: "HORAS EFECTIVAS - CERETE",
+        opt: "hefectivas",
         formato: "TXT"
     },
     {
         id: "pacientes",
         label: "PACIENTES CITADOS EN CONSULTA EXTERNA",
         carpeta: "PACIENTES CITADOS EN CONSULTA EXTERNA",
-        menuP: "ADMISI.*CITAS",
-        subM: "PACIENTES.*CITADOS.*CONSULTA.*EXTERNA",
+        opt: "adm16",
         formato: "TXT"
     },
     {
         id: "cantidad_tipo",
         label: "CANTIDAD X TIPO DE CITAS",
         carpeta: "CANTIDAD X TIPO DE CITAS",
-        menuP: "ADMISI.*CITAS",
-        subM: "CANTIDAD.*POR.*TIPO.*DE.*CITAS.*Y.*SERVICIO",
+        opt: "adm13",
         formato: "PDF"
     },
     {
         id: "atendidos_topico",
         label: "PACIENTES ATENDIDOS POR TOPICO",
         carpeta: "ATENDIDOS POR TOPICO",
-        menuP: "EMERGENCIA",
-        subM: "PACIENTES.*ATENDIDOS.*POR.*TOPICO",
+        opt: "emerg14",
         formato: "TXT"
     },
     {
         id: "perfil_cex",
         label: "PERFIL DE CEX (Todos los Dx)",
         carpeta: "PERFILES CEX",
-        menuP: "CONSULTA.*EXTERNA",
-        subM: "DIAGNOSTICOS",
+        opt: "cext7",
         formato: "TXT"
     },
     {
         id: "perfil_hos",
         label: "PERFIL DE HOS",
         carpeta: "PERFILES HOS",
-        menuP: "HOSPITALIZACION",
-        subM: "PERFIL.*DEMANDA.*HOSPITALIZACION",
+        opt: "hospital_21C",
         formato: "TXT"
     },
     {
         id: "perfil_eme",
         label: "PERFIL DE EME",
         carpeta: "PERFILES EME",
-        menuP: "EMERGENCIA",
-        subM: "PERFIL.*DEMANDA.*EMERGENCIA",
+        opt: "emerg21",
         formato: "TXT"
     },
     {
         id: "atenciones_paciente",
         label: "ATENCIONES POR PACIENTE",
         carpeta: "ATENCIONES POR PACIENTE",
-        menuP: "CONSULTA.*EXTERNA",
-        subM: "ATENCIONES.*POR.*PACIENTE",
+        opt: "cext13",
         formato: "TXT"
     }
 ];
@@ -291,6 +283,25 @@ async function mostrarMenuGUI() {
             .status-info { font-size: 12px; color: var(--text); font-weight: 600; }
             .status-file { font-size: 11px; color: #94a3b8; margin-top: 4px; font-style: italic; }
             @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+            
+            .footer-authorship {
+                position: fixed;
+                bottom: 15px;
+                right: 20px;
+                text-align: right;
+                font-size: 9px;
+                color: #94a3b8;
+                line-height: 1.4;
+                pointer-events: none;
+                z-index: 50;
+                background: rgba(15, 23, 42, 0.4);
+                padding: 8px 12px;
+                border-radius: 10px;
+                border: 1px solid rgba(56, 189, 248, 0.1);
+                backdrop-filter: blur(8px);
+                transition: opacity 0.3s;
+            }
+            .footer-authorship b { color: var(--accent); font-weight: 600; font-size: 10px; display: block; margin-bottom: 2px; }
         </style>
     </head>
     <body onclick="if(event.target.id==='modalConfig') cerrarConfig()">
@@ -425,6 +436,12 @@ async function mostrarMenuGUI() {
             </div>
             <div id="statusCentro" class="status-info">Iniciando descarga...</div>
             <div id="statusArchivo" class="status-file">espere un momento...</div>
+        </div>
+
+        <div class="footer-authorship">
+            <b>Amaro Alexisy Vilela Vargas</b><br>
+            Ing. de Sistemas - OSI - R.A. La Libertad<br>
+            amalviva@gmail.com - Tfno: 944499069
         </div>
 
         <script>
@@ -611,8 +628,7 @@ async function ejecutarDescarga(centro, reporte, mes, anio, creds, gui) {
     const carpetaFinal = path.join(BASE_DESCARGAS, reporte.carpeta, carpetaMes);
     if (!fs.existsSync(carpetaFinal)) fs.mkdirSync(carpetaFinal, { recursive: true });
 
-    const fileName = getNombreArchivo(centro, mes, anio, reporte.formato);
-    const dest = path.join(carpetaFinal, fileName);
+
 
     console.log(`\n>>> ${reporte.label}: ${centro.texto}`);
     if (PROXY_CONFIG) console.log(`🛰️ Usando proxy: ${PROXY_CONFIG.server}`);
@@ -666,29 +682,53 @@ async function ejecutarDescarga(centro, reporte, mes, anio, creds, gui) {
         await fSelect.locator('select').selectOption(centro.valor);
         await page.waitForTimeout(500);
         await fSelect.locator('input[value*="Ingresar"]').click();
-        console.log("⏳ Esperando que cargue el sistema principal (8s)...");
-        await page.waitForTimeout(8000); // Aumentado de 3s a 8s para entornos lentos
+        
+        console.log(`🚀 Navegando directamente al reporte: ${reporte.label}`);
+        const urlDirecta = `http://appsgasistexpl.essalud.gob.pe/explotaDatos/servlet/CtrlControl?opt=${reporte.opt}`;
+        await page.goto(urlDirecta, { waitUntil: 'load', timeout: 30000 });
+        console.log("⏳ Esperando que cargue el formulario (5s)...");
+        await page.waitForTimeout(5000); 
 
         const findAndClick = async (pattern) => {
             console.log(`🔍 Buscando: ${pattern}`);
+            const isSelector = pattern.startsWith('#') || pattern.startsWith('.') || pattern.startsWith('[') || pattern.includes('>');
+            
             for (let i = 0; i < 40; i++) { 
                 for (const fr of page.frames()) {
                     try {
-                        const el = fr.locator(`text=/${pattern}/i`).first();
-                        if (await el.count() > 0) {
-                            console.log(`✅ Detectado: ${pattern}`);
-                            await el.hover().catch(() => {});
-                            await page.waitForTimeout(500);
-                            try {
-                                await el.evaluate(e => {
-                                    const target = e.closest('td, a, button, div[onclick]') || e;
-                                    const opts = { bubbles: true, cancelable: true, view: window };
-                                    target.dispatchEvent(new MouseEvent('mousedown', opts));
-                                    target.dispatchEvent(new MouseEvent('mouseup', opts));
-                                    target.click();
-                                });
+                        const el = isSelector ? fr.locator(pattern).first() : fr.locator(`text=/${pattern}/i`).first();
+                        const count = await el.count().catch(() => 0);
+                        
+                        if (count > 0) {
+                            // Para selectores de ID, intentamos un clic inicial vía JS para asegurar activación de eventos
+                            if (isSelector) {
+                                await el.evaluate(node => {
+                                    node.click();
+                                    const evt = new MouseEvent('mouseover', { bubbles: true });
+                                    node.dispatchEvent(evt);
+                                }).catch(() => {});
+                            }
+
+                            if (await el.isVisible().catch(() => false)) {
+                                console.log(`✅ Detectado y Visible: ${pattern}`);
+                                await el.hover().catch(() => {});
+                                await page.waitForTimeout(300);
+                                
+                                try {
+                                    // Clic forzado para ignorar bloqueos de otros elementos
+                                    await el.click({ force: true, timeout: 5000 });
+                                } catch (e) {
+                                    // Fallback final: Clic por despacho de eventos
+                                    await el.evaluate(e => {
+                                        const target = e.closest('td, a, button, div[onclick]') || e;
+                                        target.click();
+                                        const opts = { bubbles: true, cancelable: true, view: window };
+                                        target.dispatchEvent(new MouseEvent('mousedown', opts));
+                                        target.dispatchEvent(new MouseEvent('mouseup', opts));
+                                    });
+                                }
                                 return fr;
-                            } catch (e) { return fr; }
+                            }
                         }
                     } catch (e) { }
                 }
@@ -697,10 +737,7 @@ async function ejecutarDescarga(centro, reporte, mes, anio, creds, gui) {
             return null;
         };
 
-        if (!await findAndClick(reporte.menuP)) throw new Error('Menu principal no encontrado');
-        await page.waitForTimeout(8000); 
-        if (!await findAndClick(reporte.subM)) throw new Error('Submenu no encontrado');
-        await page.waitForTimeout(2000);
+
 
         let fRep = null;
         for (let i = 0; i < 20; i++) { // Aumentado a 20 intentos (aprox 40 segundos)
@@ -750,14 +787,28 @@ async function ejecutarDescarga(centro, reporte, mes, anio, creds, gui) {
         const selects = await fRep.$$('select');
         for (const s of selects) {
             const opts = await s.$$eval('option', os => os.map(o => o.innerText.trim()));
-            let idx = -1;
+            const name = await s.getAttribute('name').catch(() => '');
             
-            // Selección específica para Atenciones por Paciente: SUBACTIVIDAD
+            // Selección específica para Atenciones por Paciente según solicitud del usuario
             if (reporte.id === 'atenciones_paciente') {
-                const subIdx = opts.findIndex(t => t.toUpperCase().includes('SUBACTIVIDAD'));
-                if (subIdx !== -1) { await s.selectOption({ index: subIdx }); continue; }
+                if (name === 'tipoReporte') {
+                    const idx = opts.findIndex(t => t.toUpperCase().includes('MEDICO'));
+                    if (idx !== -1) await s.selectOption({ index: idx });
+                    continue;
+                }
+                if (name === 'tipo') {
+                    const idx = opts.findIndex(t => t.toUpperCase().includes('SUBACTIVIDAD'));
+                    if (idx !== -1) await s.selectOption({ index: idx });
+                    continue;
+                }
+                if (name === 'servicio') {
+                    const idx = opts.findIndex(t => t.toUpperCase().includes('TODOS'));
+                    if (idx !== -1) await s.selectOption({ index: idx });
+                    continue;
+                }
             }
 
+            let idx = -1;
             if (reporte.formato === 'PDF') idx = opts.findIndex(t => t.includes('*.PDF'));
             else idx = opts.findIndex(t => t.includes('*.TXT') && t.includes('XLS'));
             if (idx !== -1) { await s.selectOption({ index: idx }); break; }
@@ -776,8 +827,17 @@ async function ejecutarDescarga(centro, reporte, mes, anio, creds, gui) {
             fRep.locator('input[value*="Imprimir" i], input[type="submit"]').first().click()
         ]);
 
-        if (download) { await download.saveAs(dest); console.log(`✅ DESCARGADO`); }
-        else throw new Error('No se generó descarga (Tiempo de espera agotado)');
+        if (download) {
+            const originalName = download.suggestedFilename();
+            const centroLimpio = centro.texto.replace(/[^a-zA-Z0-9]/g, '_');
+            const finalName = `${centroLimpio}_${originalName}`;
+            const finalDest = path.join(carpetaFinal, finalName);
+            
+            await download.saveAs(finalDest);
+            console.log(`✅ DESCARGADO: ${finalName}`); 
+        } else {
+            throw new Error('No se generó descarga (Tiempo de espera agotado)');
+        }
 
     } catch (e) {
         console.log(`⚠ ERROR: ${e.message}`);
