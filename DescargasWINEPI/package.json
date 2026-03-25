@@ -1,0 +1,12 @@
+{
+  "name": "robot-winepi",
+  "version": "1.0.0",
+  "description": "Robot para descarga de archivos WinEpi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "playwright": "latest"
+  }
+}
